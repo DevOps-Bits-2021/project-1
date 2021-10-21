@@ -9,7 +9,12 @@ USAGE()
    echo
    echo "Syntax: scriptTemplate [-d|h|v|V]"
    echo "options:"
-   echo "d     Option to deploy 'grid' or 'app' Example: '-d app -d grid"
+   echo "d     Option to deploy 'grid' or 'app' Example: '-d app -d grid -d sonar"
+   echo "    'app' : deploys the flask web app                                   "
+   echo "    'grid' : deploys the selenium grid                                  "
+   echo "    'sonar' : deploys the sonarqube sever                               "
+   echo "          Once the server is up please obtain create a new project, and "
+   echo "          generate a new token for the project                          "        
    echo "rt     Option to run tests 'sel' or 'sonar' Example: '-rt sel -ret sonar"
    echo "h     Print this Help."
    echo
@@ -23,6 +28,10 @@ deploy_grid () {
 deploy_app () {
     chmod +x deploy_app.sh
     ./deploy_app.sh
+}
+deploy_sonar () {
+    chmod +x deploy_sonar.sh
+    ./deploy_sonar.sh
 }
 run_selenium_tests () {
     chmod +x ./run_tests.sh
@@ -38,6 +47,8 @@ exec_deploy_option ( ) {
         deploy_grid;;
       app) # Enter a name
         deploy_app;;
+      sonar)
+        deploy_sonar;;
      \?) # Invalid option
          echo "Error: Invalid option"
          exit;;
