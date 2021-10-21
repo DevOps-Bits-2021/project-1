@@ -29,3 +29,4 @@ app/__pycache__
 migrations/
 app.db/
 app/static/.sass-cache
+web-app/.scannerwork
