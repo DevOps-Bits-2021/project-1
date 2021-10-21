@@ -4,7 +4,7 @@
 All the features implemented in the project can be run using the exec_project_ci shell script.
 Given below are the options that one can use to check out the features.
 
-### The following are the options
+## The following are the options
 
 1. -d (deploy) -> <br/>
     Options:
