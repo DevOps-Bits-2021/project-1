@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/register.css"> -->
+    <style>
+        h1 {
+            padding: 10px 0;
+            font-family: 'Oleo Script';
+            font: 200 80px/1.3 'Oleo Script', Helvetica, sans-serif;
+            color: #034e2f;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .text {
+            padding: 10px 0;
+            font-family: 'Oleo Script';
+            font: 200 20px/1.3 'Oleo Script', Helvetica, sans-serif;
+            color: #034e2f;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .length {
+            width: 250px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .list-ppt {
+            font-family: 'Open Sans', sans-serif;
+            font-size: larger;
+            font-weight: bolder;
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .stylebtn {
+            background-color: rgb(159 207 96 / 75%);
+            border: none;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bolder;
+            font-size: 14px;
+            width: 110px;
+            margin-left: 10px;
+            padding: 5px;
+        }
+
+        .stylebtn:hover {
+            background-color: rgb(159 207 96 / 25%);
+            border: none;
+            color: rgb(4, 82, 56);
+            box-shadow: 0 0 10px rgba(5, 65, 42, 0.411);
+        }
+
+        a.button {
+            background-color: rgb(159 207 96 / 75%);
+            border: none;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bolder;
+            font-size: 14px;
+            width: 110px;
+            margin-left: 10px;
+            padding: 5px;
+        }
+
+        a.button:hover {
+            background-color: rgb(159 207 96 / 25%);
+            border: none;
+            color: rgb(4, 82, 56);
+            box-shadow: 0 0 10px rgba(5, 65, 42, 0.411);
+        }
+
+        .float {
+            text-align: center;
+            margin: auto;
+        }
+
+    </style>
+</head>
+
+<section style="display:block">
+    <body>
+        <h1>PANTRY LIST</h1>
+        <ol class="list-ppt">
+            {% for ing in inglist %}
+            <li>
+                {{ ing }}
+            </li>
+            {% endfor %}
+        </ol>
+    
+        <!-- <form action="{{url_for('index2')}}" method="post" class="form">
+            <button type="submit" class="stylebtn" onclick="">Search</button>
+        </form> -->
+
+        <!-- <form method="POST" class="PantrySearch">
+            {{ form.hidden_tag()}}
+            {{ form.search() }}
+        </form> -->
+
+        <!-- <div class="list-ppt"> -->
+        <div class=list-ppt>
+            <a href="{{ url_for('index2')}}" class="button">DISCOVER RECIPES</a>
+            <br>
+            <!-- <button type="submit" class="stylebtn" onclick="{{ url_for('index')}}" id="search">DISCOVER RECIPES</button> -->
+        </div>
+        <div class='float'>
+        <form method="POST" class="PantryList">
+            {{ form.hidden_tag()}}
+            <!-- {{ form.search() }} -->
+            {{ form.ing_name.label(class_='form-label text') }}
+            {{ form.ing_name(class_='form-control length', placeholder="Enter an ingredient", onfocus="this.value=''", value="") }} <br>
+            {{ form.add(class_='stylebtn') }}
+            {{ form.delete(class_='stylebtn') }}
+        </form>
+        </div>
+        </body>
+    <!-- </div> -->
+    </body>
+</section>
+
+{% endblock %}

@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .view-button {
+            margin-left: 8px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+{% block content %}
+
+<!-- {% for meal in recom1 %}
+<ul>
+<li>
+<li>{{ meal.title }} </li>
+<li> {{ meal['readyInMinutes'] }} </li>
+<li> {{ meal['servings'] }} </li>
+<a href="{{ meal['sourceUrl'] }}">Link </a>
+{% endfor %}
+{% for meal in recom2 %}
+<ul>
+<li>
+ <li>{{ meal.title }} </li>
+<li> {{ meal['readyInMinutes'] }} </li>
+<li> {{ meal['servings'] }} </li>
+<a href="{{ meal['sourceUrl'] }}">Link </a>
+{% endfor %}
+{% for meal in recom3 %}
+<ul>
+<li>
+ <li>{{ meal.title }} </li>
+<li> {{ meal['readyInMinutes'] }} </li>
+<li> {{ meal['servings'] }} </li>
+<a href="{{ meal['sourceUrl'] }}">Link </a>
+{% endfor %} -->
+
+
+<body>
+    <main>
+
+        <section class="py-mt-5 py-mb-3 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Recommendations</h1>
+                    <p class="lead text-muted">We recommend meals according to the calories you require in a day,
+                        take a look at our diet categories.</p>
+                </div>
+            </div>
+        </section>
+        <section class="text-center container" style="border-top: 0.1px solid lightgray;">
+            <div class="row py-lg-3">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                    <p class="lead text-muted" style="margin: auto;"><b style="font-weight: 500;">Recommended Target
+                            Calories for a Day</b> <br><b style="font-weight: 700; color: #afa939;"> {{ current_user_cals }} Kcals</b></p>
+                </div>
+            </div>
+        </section>
+        <section class="text-center container pt-4" style="border-top: 0.1px solid lightgray;">
+            <div class="row py-lg-3">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                    <p class="lead text-muted" style="margin: auto;">Vegan Meals</p>
+                </div>
+            </div>
+        </section>
+        <div class="py-5 album bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    {% for meal in recom1 %}
+                    <div class="col">
+                        <div class="card shadow-sm" style="height: 200px;">
+
+                            <div class="card-body">
+                                <ul>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Recipe</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal.title }}</p>
+                                        </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Time</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal['readyInMinutes'] }} mins </p>
+                                        </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Serves</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal['servings'] }}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="d-flex justify-content-between align-items-center view-button"
+                                    style="margin: 8px;">
+                                    <a href="{{ meal['sourceUrl'] }}" class="btn-group btn btn-sm border view-button"
+                                        style="font: inherit;">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <section class="text-center container">
+            <div class="row py-lg-3">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                    <p class="lead text-muted" style="margin: auto;">Keto Meals</p>
+                </div>
+            </div>
+        </section>
+        <div class="py-5 album bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    {% for meal in recom2 %}
+                    <div class="col">
+                        <div class="card shadow-sm" style="height: 200px;">
+
+                            <div class="card-body">
+                                <ul>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Recipe</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal.title }}</p>
+                                        </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Time</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal['readyInMinutes'] }} mins </p>
+                                        </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Serves</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal['servings'] }}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="d-flex justify-content-between align-items-center" style="margin: 8px;">
+                                    <a href="{{ meal['sourceUrl'] }}" class="btn-group btn btn-sm border view-button"
+                                        style="font: inherit;">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <section class="text-center container">
+            <div class="row py-lg-3">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                    <p class="lead text-muted" style="margin: auto;">Gluten-Free Meals</p>
+                </div>
+            </div>
+        </section>
+        <div class="py-5 album bg-light">
+            <div class="container">
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    {% for meal in recom3 %}
+                    <div class="col">
+                        <div class="card shadow-sm" style="height: 200px;">
+
+                            <div class="card-body">
+                                <ul>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Recipe</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal.title }}</p>
+                                        </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Time</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal['readyInMinutes'] }} mins </p>
+                                        </div>
+                                    </li>
+                                    <li class="row">
+                                        <div class="col-lg-3">
+                                            <p class="card-text"><b>Serves</b></p>
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <p class="card-text">: {{ meal['servings'] }}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="d-flex justify-content-between align-items-center" style="margin: 8px;">
+                                    <a href="{{ meal['sourceUrl'] }}" class="btn-group btn btn-sm border view-button"
+                                        style="font: inherit;">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+    <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+</body>
+
+
+
+
+{% endblock %}

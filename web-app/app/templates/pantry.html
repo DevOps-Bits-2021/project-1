@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block pantry %}
+
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pantry List</title>
+
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto Slab'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+    #d1 {
+      height: auto;
+      min-height: 100px;
+      max-height: 100%;
+      margin-top: 10%;
+      margin-bottom: 100px;
+      border-radius: 10px;
+      background-color: #d4eee375;
+      box-shadow: 0 4px 8px 0 rgba(159, 207, 96, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+      padding: 0px 15px 15px 15px;
+    }
+
+    h1 {
+      padding: 10px 0;
+      font-family: 'Oleo Script';
+      font: 200 80px/1.3 'Oleo Script', Helvetica, sans-serif;
+      color: #034e2f;
+      text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .form-control {
+      display: inline-block;
+      width: 250px;
+      max-width: 60%;
+      min-width: 100px;
+      margin: 10px 0;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: 30px;
+    }
+
+    input[type=text] {
+      border: rgb(4, 82, 56);
+      padding: 5px;
+      border-width: 5px;
+      width: 220px;
+    }
+
+    .btn-grp {
+      float: right;
+    }
+
+    .stylebtn {
+      background-color: rgb(159 207 96 / 75%);
+      border: none;
+      color: white;
+      border-radius: 4px;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: bolder;
+      font-size: 14px;
+      width: 110px;
+      margin-left: 10px;
+      padding: 5px;
+    }
+
+    .button {
+      transition-duration: 0.4s;
+    }
+
+    .stylebtn:hover {
+      background-color: rgb(159 207 96 / 25%);
+      border: none;
+      color: rgb(4, 82, 56);
+      box-shadow: 0 0 10px rgba(5, 65, 42, 0.411);
+    }
+
+    .list-ppt {
+      font-family: 'Open Sans', sans-serif;
+      font-size: large;
+      font-weight: bolder;
+    }
+  </style>
+
+  <script>
+    window.console = window.console || function (t) { };
+  </script>
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+
+<body translate="no">
+  <html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <section style="display: flex;">
+
+    <body>
+      <div id="main"
+        class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+        <div id="d1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-app="myGroceryList" ng-controller="myCtrl">
+
+          <h1>PANTRY LIST</h1>
+          <ul id="itemList" class="list-ppt">
+          </ul>
+
+          <input type="text" id="item" onfocus="this.value=''" placeholder="Enter an ingredient" autofocus>
+          <div class="btn-grp">
+            <button type="submit" class="stylebtn" onclick="addItem()" id="add">ADD ITEM</button>
+            <button type="submit" class="stylebtn" onclick="removeItem()" id="remove">REMOVE ITEM</button>
+          </div>
+
+          <script>
+
+            var input = document.getElementById("item");
+            input.addEventListener("keyup", function (event) {
+              if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("add").click();
+              }
+            });
+
+            function addItem() {
+              var a = document.getElementById("itemList");
+              var candidate = document.getElementById("item");
+              var li = document.createElement("LI");
+              li.setAttribute('id', item.value);
+              li.appendChild(document.createTextNode(candidate.value));
+              a.appendChild(li);
+              document.getElementById("item").value = '';
+            }
+
+            function removeItem() {
+              var a = document.getElementById("itemList");
+              var candidate = document.getElementById("item");
+              var item = document.getElementById(candidate.value);
+              a.removeChild(item);
+              document.getElementById("item").value = '';
+            }
+          </script>
+        </div>
+      </div>
+    </body>
+
+  </html>
+</body>
+</section>
+
+{% endblock %}
