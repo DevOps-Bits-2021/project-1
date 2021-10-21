@@ -9,37 +9,38 @@ USAGE()
    echo
    echo "Syntax: scriptTemplate [-d|h|v|V]"
    echo "options:"
-   echo "d     Option to deploy 'grid' or 'app' Example: '-d app -d grid -d sonar"
-   echo "    'app' : deploys the flask web app                                   "
-   echo "    'grid' : deploys the selenium grid                                  "
-   echo "    'sonar' : deploys the sonarqube sever                               "
+   echo "d ->    Option to deploy 'grid' or 'app' "
+   echo "         'app' : deploys the flask web app                                   "
+   echo "         'grid' : deploys the selenium grid                                  "
+   echo "         'sonar' : deploys the sonarqube sever                               "
    echo "          Once the server is up please obtain create a new project, and "
-   echo "          generate a new token for the project                          "        
-   echo "rt     Option to run tests 'sel' or 'sonar' Example: '-rt sel -ret sonar"
-   echo "h     Print this Help."
+   echo "          generate a new token for the project                          "   
+   echo "          Example: '-d app -d grid -d sonar'                           "     
+   echo "rt ->   Option to run tests 'sel' or 'sonar' Example: '-rt sel -ret sonar"
+   echo "h  ->   Print this Help."
    echo
 }
 
 
 deploy_grid () {
-    chmod +x deploy_grid.sh
-    ./deploy_grid.sh
+    chmod +x scripts/deploy_grid.sh
+    ./scripts/deploy_grid.sh
 }
 deploy_app () {
-    chmod +x deploy_app.sh
-    ./deploy_app.sh
+    chmod +x scripts/deploy_app.sh
+    ./scripts/deploy_app.sh
 }
 deploy_sonar () {
-    chmod +x deploy_sonar.sh
-    ./deploy_sonar.sh
+    chmod +x scripts/deploy_sonar.sh
+    ./scripts/deploy_sonar.sh
 }
 run_selenium_tests () {
-    chmod +x ./run_tests.sh
-    ./run_tests.sh
+    chmod +x ./scripts/run_tests.sh
+    ./scripts/run_tests.sh
 }
 run_sonar_scan () {
-    chmod +x ./sonar_scan.sh
-    ./sonar_scan.sh
+    chmod +x ./scripts/sonar_scan.sh
+    ./scripts/sonar_scan.sh
 }
 exec_deploy_option ( ) {
      case $1 in
@@ -65,7 +66,6 @@ exec_tests_option () {
          exit;;
      esac
 }
-
 while getopts ":d:h:rt" option; do
    case $option in
       h) # display Help
