@@ -49,6 +49,7 @@ public class DemoApplicationTests {
 		    driver.findElement(By.linkText("Login")).click();
 		    String ActualTitle = driver.getTitle();
 		    Assert.assertEquals("Login", ActualTitle);
+			driver.close();
 			 driver.quit();
 	   
 	  }
@@ -65,6 +66,7 @@ public class DemoApplicationTests {
 		    driver.findElement(By.id("submit")).click();
 		    driver.findElement(By.linkText("Logout")).click();
 		    WebElement we = driver.findElement(By.linkText("Login"));
+			driver.close();
 		    driver.quit();
 		    Assert.assertNotEquals(we, null);
 		    
@@ -100,6 +102,7 @@ public class DemoApplicationTests {
 	    driver.findElement(By.id("submit")).click();
 	  WebElement we =  driver.findElement(By.className("recipe-page"));
 	    driver.findElement(By.linkText("Logout")).click();
+		driver.close();
 	    driver.quit();
 	    Assert.assertNotEquals(we, null);
 	  }
@@ -124,6 +127,7 @@ public class DemoApplicationTests {
 	    driver.findElement(By.cssSelector(".col-12:nth-child(4) .post-tag")).click();
 	    driver.findElement(By.linkText("Healthy Food")).click();
 	    String ActualTitle = driver.getTitle();
+		driver.close();
 	    driver.quit();
 	    Assert.assertEquals(ActualTitle, "50 Foods That Are Super Healthy");
 	    
