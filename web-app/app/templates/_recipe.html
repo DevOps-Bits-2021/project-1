@@ -1,0 +1,16 @@
+<div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+    <!-- Blog Thumbnail -->
+    <div class="blog-thumbnail">
+        <img src="{{ recipe.imgUrl }}" alt="">
+    </div>
+    <!-- Blog Content -->
+    <div class="blog-content">
+        <a href="#" class="post-tag">The Best</a>
+        <a href="/recipe/{{recipe.id}}" class="post-title">{{ recipe.title }}</a>
+        <div class="post-meta">
+            <a href="#" class="post-date">July 11, 2021</a>
+            <a href="#" class="post-author">By Wayne Remedios</a>
+        </div>
+        <p>{{ recipe.summary[:200] | safe}}</p>
+    </div>
+</div>
