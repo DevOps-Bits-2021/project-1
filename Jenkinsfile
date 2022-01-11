@@ -29,7 +29,7 @@ pipeline{
                     }
                     steps {
                         script{
-                            dir('DevopsProject/selenium_tests/GridSetupTest'){
+                            dir('login_app/login_app_sel_tests/GridSetupTest'){
                                 sh 'mvn clean install' //this command will be executed inside maven container
                                 archive(includes: '**/TEST-TestSuite.xml')
                                 junit '**/junitreports/*.xml'
