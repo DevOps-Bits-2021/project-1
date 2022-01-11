@@ -1,0 +1,3 @@
+[submodule "DevopsProject"]
+	path = DevopsProject
+	url = git@github.com:RahulKeluskar/DevopsProject.git
